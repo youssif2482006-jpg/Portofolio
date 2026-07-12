@@ -1,53 +1,38 @@
-import { useEffect, useRef, type ReactNode } from 'react'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
-import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
+"use client";
 
-gsap.registerPlugin(ScrollTrigger)
+import { motion } from "framer-motion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { easeOut } from "@/lib/motion";
 
 type RevealProps = {
-  children: ReactNode
-  className?: string
-  delay?: number
-  y?: number
-}
+  children: React.ReactNode;
+  delay?: number;
+  y?: number;
+  scale?: number;
+  className?: string;
+  as?: "div" | "li";
+};
 
-export function Reveal({ children, className, delay = 0, y = 32 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const prefersReducedMotion = usePrefersReducedMotion()
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-
-    if (prefersReducedMotion) {
-      gsap.set(el, { opacity: 1, y: 0 })
-      return
-    }
-
-    gsap.set(el, { opacity: 0, y })
-
-    const ctx = gsap.context(() => {
-      gsap.to(el, {
-        opacity: 1,
-        y: 0,
-        duration: 0.9,
-        delay,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse',
-        },
-      })
-    })
-
-    return () => ctx.revert()
-  }, [delay, y, prefersReducedMotion])
+export function Reveal({
+  children,
+  delay = 0,
+  y = 24,
+  scale = 1,
+  className = "",
+  as = "div",
+}: RevealProps) {
+  const prefersReduced = usePrefersReducedMotion();
+  const Component = motion[as];
 
   return (
-    <div ref={ref} className={className}>
+    <Component
+      initial={prefersReduced ? undefined : { opacity: 0, y, scale }}
+      whileInView={prefersReduced ? undefined : { opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, delay, ease: easeOut }}
+      className={className}
+    >
       {children}
-    </div>
-  )
+    </Component>
+  );
 }

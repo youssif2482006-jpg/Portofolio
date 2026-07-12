@@ -1,57 +1,49 @@
+export type ProjectPattern = "glow" | "grid" | "bars" | "sweep";
+
 export type Project = {
-  slug: string
-  title: string
-  summary: string
-  role: string
-  year: string
-  stack: string[]
-  href?: string
-  metric: string
-}
+  name: string;
+  category: string;
+  blurb: string;
+  metric: string;
+  tags: string[];
+  pattern: ProjectPattern;
+};
 
 export const projects: Project[] = [
   {
-    slug: 'orbit-analytics',
-    title: 'Orbit Analytics',
-    summary:
-      'A real-time analytics dashboard for e-commerce teams, processing millions of events with sub-second query latency.',
-    role: 'Full-stack build, solo',
-    year: '2026',
-    stack: ['React', 'Node.js', 'PostgreSQL', 'WebSockets'],
-    metric: '40% faster time-to-insight',
-    href: '#',
+    name: "Solace",
+    category: "Wellness · SaaS",
+    blurb:
+      "A calmer marketing site for a mental-health platform, built to convert without feeling like a sales pitch.",
+    metric: "+38% trial signups",
+    tags: ["Brand", "Web Design", "Development"],
+    pattern: "glow",
   },
   {
-    slug: 'northwind-commerce',
-    title: 'Northwind Commerce',
-    summary:
-      'Headless storefront rebuild focused on Core Web Vitals — cut load times in half while adding a full design system.',
-    role: 'Frontend lead',
-    year: '2025',
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    metric: '2.1s → 0.9s LCP',
-    href: '#',
+    name: "Ferrous",
+    category: "Industrial · Ecommerce",
+    blurb:
+      "A precision-tooling brand rebuilt from the ground up — sharper systems, faster storefront, fewer clicks to cart.",
+    metric: "2.1s avg. load time",
+    tags: ["Brand", "Ecommerce", "Development"],
+    pattern: "grid",
   },
   {
-    slug: 'signal-crm',
-    title: 'Signal CRM',
-    summary:
-      'Custom CRM for a boutique agency: pipeline automation, client portal, and reporting built from a blank slate.',
-    role: 'Product engineer',
-    year: '2025',
-    stack: ['React', 'Prisma', 'PostgreSQL', 'AWS'],
-    metric: '~15 hrs/week saved',
-    href: '#',
+    name: "Northbound",
+    category: "Fintech · Product",
+    blurb:
+      "The product marketing site for a treasury platform, translating dense financial tooling into a clear story.",
+    metric: "3x demo requests",
+    tags: ["Web Design", "Development"],
+    pattern: "bars",
   },
   {
-    slug: 'lumen-booking',
-    title: 'Lumen Booking',
-    summary:
-      'Scheduling platform with real-time availability sync across calendars, built for a multi-location service business.',
-    role: 'Full-stack build, solo',
-    year: '2024',
-    stack: ['Next.js', 'Redis', 'Stripe', 'Docker'],
-    metric: '99.98% uptime',
-    href: '#',
+    name: "Aria",
+    category: "Hospitality · Brand",
+    blurb:
+      "A boutique hotel group's digital home — warm, unhurried, and built to make you want to book tonight.",
+    metric: "+52% direct bookings",
+    tags: ["Brand", "Web Design", "Motion"],
+    pattern: "sweep",
   },
-]
+];

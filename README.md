@@ -1,38 +1,36 @@
-# Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Personal freelance portfolio — React + Vite, TypeScript, Tailwind CSS v4, React Three Fiber (Three.js) for the interactive hero, GSAP + Lenis for scroll animation.
+## Getting Started
 
-## Development
+First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Editing content
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-All placeholder content lives in `src/data/`:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- `profile.ts` — name, role, tagline, email, social links
-- `skills.ts` — skill groups
-- `projects.ts` — project cards
-- `experience.ts` — work/education timeline
-- `blog.ts` — blog post teasers
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Replace the `yourname.dev` favicon/name, and the `#` placeholder links in `ProjectsSection.tsx`, with your real assets.
+## Learn More
 
-## Deploying to GitHub Pages
+To learn more about Next.js, take a look at the following resources:
 
-Two options are set up:
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-**Option A — GitHub Actions (recommended):** push this repo to GitHub, then in the repo's Settings → Pages, set Source to "GitHub Actions". Every push to `main` will build and deploy automatically via `.github/workflows/deploy.yml`.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-**Option B — manual:**
+## Deploy on Vercel
 
-```bash
-npm run deploy
-```
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-This builds the site and pushes `dist/` to a `gh-pages` branch (requires a `git remote` already configured and the `gh-pages` package, which is already installed).
-
-Either way, Vite is configured with a relative `base: './'` in `vite.config.ts`, so it works whether the repo is a project page (`username.github.io/repo-name`) or a user page (`username.github.io`).
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
