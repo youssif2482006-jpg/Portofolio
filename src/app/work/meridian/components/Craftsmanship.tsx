@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "../lib/gsap";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { withBasePath } from "@/lib/basePath";
 import { Reveal } from "./Reveal";
 
 export function Craftsmanship() {
@@ -39,7 +40,7 @@ export function Craftsmanship() {
     >
       <div ref={visualWrapRef} className="absolute inset-0 -top-[10%] h-[120%] w-full">
         <Image
-          src="/images/meridian/craftsmanship.jpg"
+          src={withBasePath("/images/meridian/craftsmanship.jpg")}
           alt="Exposed watch movement with tweezers adjusting a component"
           fill
           unoptimized

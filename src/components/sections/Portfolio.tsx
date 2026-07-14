@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ProjectVisual } from "@/components/sections/ProjectVisual";
 import { projects } from "@/data/projects";
 import { easeOut } from "@/lib/motion";
+import { withBasePath } from "@/lib/basePath";
 
 const MotionLink = motion.create(Link);
 
@@ -64,7 +65,7 @@ export function Portfolio() {
                           }}
                         />
                         <Image
-                          src={project.image}
+                          src={withBasePath(project.image)}
                           alt={`${project.name} preview`}
                           fill
                           sizes="(max-width: 768px) 100vw, 50vw"

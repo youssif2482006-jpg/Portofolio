@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { withBasePath } from "@/lib/basePath";
 import { MagneticButton } from "./MagneticButton";
 
 export function BoutiqueExperience() {
@@ -29,7 +30,7 @@ export function BoutiqueExperience() {
           <Reveal scale={0.97} delay={0.1}>
             <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] border border-[rgba(34,29,21,0.15)]">
               <Image
-                src="/images/meridian/boutique.jpg"
+                src={withBasePath("/images/meridian/boutique.jpg")}
                 alt="Meridian private boutique showroom interior"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"

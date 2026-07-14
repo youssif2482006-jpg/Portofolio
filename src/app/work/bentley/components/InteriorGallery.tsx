@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { withBasePath } from "@/lib/basePath";
 import { galleryItems } from "../data/content";
 
 export function InteriorGallery() {
@@ -25,7 +26,7 @@ export function InteriorGallery() {
               <Reveal scale={0.98} className="w-full md:w-3/5">
                 <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] border border-[var(--bt-border)]">
                   <Image
-                    src={item.image}
+                    src={withBasePath(item.image)}
                     alt={item.title}
                     fill
                     sizes="(min-width: 768px) 60vw, 100vw"

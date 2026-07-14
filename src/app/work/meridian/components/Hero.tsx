@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "../lib/gsap";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { withBasePath } from "@/lib/basePath";
 import { MagneticButton } from "./MagneticButton";
 
 export function Hero() {
@@ -56,7 +57,7 @@ export function Hero() {
     >
       <div ref={dialRef} className="absolute inset-0">
         <Image
-          src="/images/meridian/hero.jpg"
+          src={withBasePath("/images/meridian/hero.jpg")}
           alt="Meridian timepiece over a moonlit asteroid field"
           fill
           priority

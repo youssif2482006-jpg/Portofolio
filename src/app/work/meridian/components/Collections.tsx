@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
+import { withBasePath } from "@/lib/basePath";
 import { collections } from "../data/content";
 
 export function Collections() {
@@ -19,7 +20,7 @@ export function Collections() {
               <article className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-[var(--mr-border)] bg-[var(--mr-card)] transition-colors duration-500 hover:border-[var(--mr-gold)]/40">
                 <div className="relative aspect-[4/3] w-full shrink-0 overflow-hidden bg-[var(--mr-bg-2)]">
                   <Image
-                    src={item.image}
+                    src={withBasePath(item.image)}
                     alt={`${item.name} — ${item.tag}`}
                     fill
                     sizes="(max-width: 640px) 100vw, 33vw"

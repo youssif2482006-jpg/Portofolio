@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "../lib/gsap";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { withBasePath } from "@/lib/basePath";
 import { Reveal } from "./Reveal";
 import { differencePoints } from "../data/content";
 
@@ -40,7 +41,7 @@ export function Difference() {
           <div className="aspect-[4/3] overflow-hidden rounded-[20px] border border-[var(--bt-border)]">
             <div ref={visualWrapRef} className="relative h-[140%] w-full">
               <Image
-                src="/images/bentley/difference-craft.webp"
+                src={withBasePath("/images/bentley/difference-craft.webp")}
                 alt="Artisan hand-stitching leather upholstery"
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./Reveal";
 import { SpecVisual } from "./SpecVisual";
+import { withBasePath } from "@/lib/basePath";
 import { specSheet } from "../data/content";
 
 export function Specifications() {
@@ -21,7 +22,7 @@ export function Specifications() {
             <article className="group overflow-hidden rounded-[20px] border border-[var(--bt-border)] bg-[var(--bt-card)] transition-colors duration-500 hover:border-[var(--bt-platinum)]/40">
               <div className="relative h-48 w-full overflow-hidden">
                 <Image
-                  src={spec.image}
+                  src={withBasePath(spec.image)}
                   alt={`${spec.title} — ${spec.value}`}
                   fill
                   sizes="(max-width: 640px) 100vw, 50vw"

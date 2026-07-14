@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "../lib/gsap";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { withBasePath } from "@/lib/basePath";
 import { Grain } from "./Grain";
 import { MagneticButton } from "./MagneticButton";
 import { revealStops, finalCarTarget } from "../data/content";
@@ -161,7 +162,7 @@ function StaticFallback() {
         />
         <div className="relative aspect-[1900/1049] w-full">
           <Image
-            src="/images/bentley/continental-gt-cutout.png"
+            src={withBasePath("/images/bentley/continental-gt-cutout.png")}
             alt="Bentley Continental GT"
             fill
             priority
@@ -304,11 +305,11 @@ export function CarReveal() {
             className="absolute inset-x-0 top-full h-full opacity-20 blur-[3px] [mask-image:linear-gradient(to_bottom,black,transparent_65%)]"
             style={{ transform: "scaleY(-1)" }}
           >
-            <Image src="/images/bentley/continental-gt-cutout.png" alt="" fill className="object-contain" />
+            <Image src={withBasePath("/images/bentley/continental-gt-cutout.png")} alt="" fill className="object-contain" />
           </div>
 
           <Image
-            src="/images/bentley/continental-gt-cutout.png"
+            src={withBasePath("/images/bentley/continental-gt-cutout.png")}
             alt="Bentley Continental GT"
             fill
             priority
