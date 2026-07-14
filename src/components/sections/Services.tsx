@@ -30,7 +30,7 @@ export function Services() {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="group flex w-full items-center gap-6 rounded-lg py-7 text-left transition-colors duration-300 hover:bg-white/[0.02]"
+                  className="group flex w-full items-center gap-6 rounded-lg py-7 text-left transition-colors duration-300 hover:bg-ink/[0.02]"
                 >
                   <span
                     className={`h-2 w-2 shrink-0 rounded-full transition-all duration-300 group-hover:scale-125 ${
@@ -79,7 +79,7 @@ export function Services() {
                           {service.includes.map((item) => (
                             <li
                               key={item}
-                              className="h-fit rounded-pill bg-white/5 px-3 py-1 font-mono text-[11px] text-mist"
+                              className="h-fit rounded-pill bg-ink/5 px-3 py-1 font-mono text-[11px] text-mist"
                             >
                               {item}
                             </li>

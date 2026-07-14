@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
 export const alt = "Independent Web Designer & Developer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -51,7 +52,7 @@ export default function Image() {
             color: "#f6f0e8",
           }}
         >
-          <span>I turn your idea into a website worth&nbsp;</span>
+          <span>Turn your idea into a website worth&nbsp;</span>
           <span style={{ color: "#5fb6a6" }}>remembering.</span>
         </div>
       </div>

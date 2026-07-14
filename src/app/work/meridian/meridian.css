@@ -1,0 +1,149 @@
+.meridian {
+  --mr-bg: #050505;
+  --mr-bg-2: #0b0b0b;
+  --mr-card: rgba(255, 255, 255, 0.08);
+  --mr-border: rgba(255, 255, 255, 0.14);
+  --mr-green: #006039;
+  --mr-green-bright: #0a8a54;
+  --mr-gold: #bfa46f;
+  --mr-gold-deep: #6b552e;
+  --mr-ivory: #f2ead9;
+  --mr-ivory-2: #e8ddc6;
+  --mr-ivory-ink: #221d15;
+  --mr-ivory-mist: rgba(34, 29, 21, 0.65);
+  --mr-text: #ffffff;
+  --mr-mist: rgba(255, 255, 255, 0.82);
+
+  background: var(--mr-bg);
+  color: var(--mr-text);
+}
+
+.meridian * {
+  border-color: var(--mr-border);
+}
+
+.mr-serif {
+  font-family: var(--font-mr-serif), serif;
+}
+
+.mr-sans {
+  font-family: var(--font-mr-sans), sans-serif;
+}
+
+.mr-mono {
+  font-family: var(--font-mr-mono), monospace;
+}
+
+.mr-eyebrow {
+  font-family: var(--font-mr-serif), serif;
+  font-style: italic;
+  letter-spacing: 0.08em;
+}
+
+.mr-glass {
+  background: color-mix(in srgb, var(--mr-bg-2) 72%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--mr-border);
+}
+
+.mr-gold-text {
+  background: linear-gradient(100deg, #e9d9b3, var(--mr-gold) 45%, #8f7a4f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hides the native scrollbar while scrolling still works (Lenis drives the motion).
+   :has() covers first paint with no client-side flash; the .mr-hide-scrollbar class
+   is a JS-applied fallback for browsers/engines where :has() doesn't take hold. */
+html:has(.meridian),
+html.mr-hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html:has(.meridian)::-webkit-scrollbar,
+html.mr-hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+  background: transparent;
+}
+
+.mr-underline {
+  position: relative;
+}
+
+.mr-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: var(--mr-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mr-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* Grain overlay — fixed to the viewport, not the document, so it stays a small
+   composited layer instead of an element the height of the entire scrolling page */
+.mr-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: mr-grain-shift 1.4s steps(4) infinite;
+}
+
+@keyframes mr-grain-shift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-1%, 0.5%); }
+  50% { transform: translate(0.5%, -1%); }
+  75% { transform: translate(-0.5%, 1%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Gold shimmer sweep for premium button hover */
+.mr-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.mr-shine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    color-mix(in srgb, var(--mr-text) 35%, transparent),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mr-shine:hover::before {
+  left: 130%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mr-grain {
+    animation: none;
+  }
+  .mr-shine::before {
+    transition: none;
+  }
+}

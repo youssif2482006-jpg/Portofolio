@@ -10,14 +10,15 @@ type MagneticButtonProps = {
   variant?: "primary" | "secondary";
   className?: string;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
 const base =
-  "relative inline-flex items-center justify-center gap-2 rounded-pill px-7 py-3.5 text-sm font-semibold tracking-tight transition-colors focus-visible:outline-none";
+  "relative inline-flex items-center justify-center gap-2 rounded-pill px-7 py-3.5 text-sm font-semibold tracking-tight transition-colors focus-visible:outline-none disabled:opacity-60 disabled:pointer-events-none";
 
 const variants = {
   primary:
-    "bg-ink text-canvas hover:bg-white shadow-[0_0_0_1px_rgba(246,240,232,0.1)]",
+    "bg-ink text-canvas hover:opacity-90 shadow-[0_0_0_1px_color-mix(in_srgb,var(--color-ink)_10%,transparent)]",
   secondary:
     "glass text-ink hover:border-accent/40",
 };
@@ -28,6 +29,7 @@ export function MagneticButton({
   variant = "primary",
   className = "",
   onClick,
+  disabled = false,
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
   const prefersReduced = usePrefersReducedMotion();
@@ -52,12 +54,16 @@ export function MagneticButton({
   }
 
   const Component = motion[href ? "a" : "button"] as typeof motion.a;
+  const stateProps = (
+    href ? { "aria-disabled": disabled || undefined } : { disabled }
+  ) as Record<string, unknown>;
 
   return (
     <Component
       ref={ref as never}
       href={href}
-      onClick={onClick}
+      {...stateProps}
+      onClick={disabled ? undefined : onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       whileTap={prefersReduced ? undefined : { scale: 0.94 }}

@@ -30,7 +30,7 @@ export function Faq() {
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
-                  className="group flex w-full items-center justify-between gap-6 rounded-lg py-6 text-left transition-colors duration-300 hover:bg-white/[0.02]"
+                  className="group flex w-full items-center justify-between gap-6 rounded-lg py-6 text-left transition-colors duration-300 hover:bg-ink/[0.02]"
                 >
                   <span className="font-display text-lg font-medium tracking-tight transition-colors duration-300 group-hover:text-accent sm:text-xl">
                     {faq.question}

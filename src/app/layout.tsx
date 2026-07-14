@@ -48,6 +48,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable} h-full`}
+      suppressHydrationWarning
     >
       <body className="min-h-full bg-canvas text-ink font-body antialiased">
         {children}

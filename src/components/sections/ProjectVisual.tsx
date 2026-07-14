@@ -11,7 +11,7 @@ export function ProjectVisual({ pattern }: { pattern: ProjectPattern }) {
           {[100, 72, 88].map((w, i) => (
             <div
               key={i}
-              className="h-2 rounded-full bg-white/10"
+              className="h-2 rounded-full bg-ink/10"
               style={{ width: `${w}%` }}
             />
           ))}
@@ -55,6 +55,32 @@ export function ProjectVisual({ pattern }: { pattern: ProjectPattern }) {
             }}
           />
         ))}
+      </div>
+    );
+  }
+
+  if (pattern === "dial") {
+    return (
+      <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-surface-2">
+        <div className="relative h-40 w-40 rounded-full border border-accent-alt/40 transition-transform duration-700 ease-out group-hover:scale-110">
+          <div className="absolute inset-4 rounded-full border border-accent/25" />
+          {Array.from({ length: 12 }, (_, i) => i).map((i) => (
+            <div
+              key={i}
+              className="absolute left-1/2 top-1/2 h-2.5 w-[2px] -translate-x-1/2 rounded-full bg-accent-alt/50"
+              style={{ transform: `rotate(${(i / 12) * 360}deg) translateY(-72px)` }}
+            />
+          ))}
+          <div
+            className="absolute left-1/2 top-1/2 h-px w-14 origin-left bg-accent-alt transition-transform duration-700 ease-out group-hover:rotate-45"
+            style={{ transform: "rotate(-40deg)" }}
+          />
+          <div
+            className="absolute left-1/2 top-1/2 h-px w-10 origin-left bg-accent transition-transform duration-700 ease-out group-hover:-rotate-12"
+            style={{ transform: "rotate(140deg)" }}
+          />
+          <div className="absolute left-1/2 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-alt" />
+        </div>
       </div>
     );
   }

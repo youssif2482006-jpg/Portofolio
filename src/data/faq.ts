@@ -32,6 +32,6 @@ export const faqs: FaqItem[] = [
   {
     question: "How do we get started?",
     answer:
-      "Request a free demo through the contact form with a bit about your project and timeline. I reply within two business days to schedule an introductory call.",
+      "Request a free demo through the contact form with a bit about your project and timeline. I reply within a couple of hours to schedule an introductory call.",
   },
 ];

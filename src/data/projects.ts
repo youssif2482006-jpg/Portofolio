@@ -1,4 +1,4 @@
-export type ProjectPattern = "glow" | "grid" | "bars" | "sweep";
+export type ProjectPattern = "glow" | "grid" | "bars" | "sweep" | "dial";
 
 export type Project = {
   name: string;
@@ -7,43 +7,31 @@ export type Project = {
   metric: string;
   tags: string[];
   pattern: ProjectPattern;
+  href?: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
   {
-    name: "Solace",
-    category: "Wellness · SaaS",
+    name: "Bentley Continental GT",
+    category: "Automotive · Concept",
     blurb:
-      "A calmer marketing site for a mental-health platform, built to convert without feeling like a sales pitch.",
-    metric: "+38% trial signups",
-    tags: ["Brand", "Web Design", "Development"],
-    pattern: "glow",
-  },
-  {
-    name: "Ferrous",
-    category: "Industrial · Ecommerce",
-    blurb:
-      "A precision-tooling brand rebuilt from the ground up — sharper systems, faster storefront, fewer clicks to cart.",
-    metric: "2.1s avg. load time",
-    tags: ["Brand", "Ecommerce", "Development"],
+      "An unofficial single-car showcase — the car itself moves through the page on scroll as specs reveal beside it.",
+    metric: "GSAP scroll-pinned reveal",
+    tags: ["Motion", "Web Design", "Development"],
     pattern: "grid",
+    href: "/work/bentley",
+    image: "/images/bentley/continental-gt-cutout.png",
   },
   {
-    name: "Northbound",
-    category: "Fintech · Product",
+    name: "Meridian",
+    category: "Luxury Watches · Concept",
     blurb:
-      "The product marketing site for a treasury platform, translating dense financial tooling into a clear story.",
-    metric: "3x demo requests",
-    tags: ["Web Design", "Development"],
-    pattern: "bars",
-  },
-  {
-    name: "Aria",
-    category: "Hospitality · Brand",
-    blurb:
-      "A boutique hotel group's digital home — warm, unhurried, and built to make you want to book tonight.",
-    metric: "+52% direct bookings",
-    tags: ["Brand", "Web Design", "Motion"],
-    pattern: "sweep",
+      "A slow, cinematic boutique for a fine watchmaker — GSAP scroll storytelling paired with Lenis smooth scroll.",
+    metric: "GSAP + Lenis + Framer Motion",
+    tags: ["Motion", "Web Design", "Development"],
+    pattern: "dial",
+    href: "/work/meridian",
+    image: "/images/meridian/hero.jpg",
   },
 ];

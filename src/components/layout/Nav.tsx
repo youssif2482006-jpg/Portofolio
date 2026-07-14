@@ -24,8 +24,8 @@ export function Nav() {
       transition={{ duration: 0.7, delay: 0.1, ease: easeOut }}
       className="fixed inset-x-0 top-4 z-50 flex justify-center px-4"
     >
-      <nav className="glass flex w-full max-w-4xl items-center justify-between rounded-pill px-4 py-2.5 sm:px-5">
-        <ul className="hidden items-center gap-7 md:flex">
+      <nav className="glass flex w-full max-w-4xl items-center gap-8 rounded-pill px-4 py-2.5 sm:px-5">
+        <ul className="hidden flex-1 items-center justify-between md:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
@@ -85,7 +85,7 @@ export function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-3 font-body text-[15px] text-ink/90 transition-colors hover:bg-white/5"
+                className="rounded-xl px-4 py-3 font-body text-[15px] text-ink/90 transition-colors hover:bg-ink/5"
               >
                 {link.label}
               </a>

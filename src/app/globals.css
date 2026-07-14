@@ -7,6 +7,7 @@
   --color-surface-2: #201a15;
   --color-accent: #5fb6a6;
   --color-accent-deep: #3d8f7a;
+  --color-accent-alt: #d9a84f;
   --color-ink: #f6f0e8;
   --color-mist: #948a7d;
   --color-hairline: #2a241e;
@@ -22,6 +23,7 @@
   --color-surface-2: var(--color-surface-2);
   --color-accent: var(--color-accent);
   --color-accent-deep: var(--color-accent-deep);
+  --color-accent-alt: var(--color-accent-alt);
   --color-ink: var(--color-ink);
   --color-mist: var(--color-mist);
   --color-hairline: var(--color-hairline);
@@ -77,10 +79,12 @@ body {
 }
 
 .glass {
-  background: color-mix(in srgb, var(--color-surface) 60%, transparent);
-  backdrop-filter: blur(20px) saturate(140%);
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  border: 1px solid color-mix(in srgb, var(--color-ink) 8%, transparent);
+  background: color-mix(in srgb, var(--color-surface) 68%, transparent);
+  backdrop-filter: blur(20px) saturate(160%) brightness(1.15);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--color-ink) 14%, transparent),
+    0 8px 30px -14px color-mix(in srgb, var(--color-accent) 25%, transparent);
 }
 
 .text-gradient {

@@ -38,7 +38,7 @@ const word = {
   },
 };
 
-const HEADLINE_WORDS = "I turn your idea into a website worth".split(" ");
+const HEADLINE_WORDS = "Turn your idea into a website worth".split(" ");
 
 export function Hero() {
   return (
@@ -65,14 +65,14 @@ export function Hero() {
 
         <motion.h1
           variants={headline}
-          className="mt-6 max-w-3xl font-display text-[13vw] font-semibold leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl"
+          className="mt-6 max-w-3xl font-display text-[13vw] font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl"
         >
           {HEADLINE_WORDS.map((w, i) => (
-            <motion.span key={i} variants={word} className="inline-block">
+            <motion.span key={i} variants={word} className="inline-block align-top">
               {w}&nbsp;
             </motion.span>
           ))}
-          <motion.span variants={word} className="text-gradient inline-block">
+          <motion.span variants={word} className="text-gradient inline-block align-top">
             remembering.
           </motion.span>
         </motion.h1>
